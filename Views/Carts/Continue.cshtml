@@ -1,0 +1,73 @@
+﻿@model CartDetailsViewModel
+
+@{
+    ViewData["Title"] = "Shopping Cart";
+}
+
+<div class="whiteBackground m-4">
+    <div class="container">
+        <div class="card">
+            <div class="card-header bg-dark text-light ml-0 row container">
+                <div class="col-md-6">
+                    <i class="bi bi-cart-plus-fill"></i>&nbsp;Shopping Cart
+                </div>
+
+                <div class="col-md-6 mt-3 mt-md-0 text-right">
+                    <a class="btn btn-outline-info btn-sm" asp-area="" asp-controller="Home" asp-action="Index">
+                        Countinue Shopping
+                    </a>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-12 text-sm-center col-lg-6 text-lg-left">
+                        <h4>@Model.Product.Name</h4>
+                        <h6>@Model.Product.Description</h6>
+                    </div>
+
+                    <div class="col-12 text-sm-center col-lg-6 text-lg-right row">
+                        <div class="col-4 text-md-right" style="padding-top:5px;">
+                            <h6>
+                                <strong>
+                                    @Model.Product.Price
+                                    <span class="text-muted">×</span>
+                                    @Model.Count
+                                </strong>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-between">
+                    <div class="mt-3 mt-md-0 col-12 col-md-5 pr-4">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between bg-light">
+                                <span class="text-info">
+                                    Total With Shipping Rate(USD)
+                                </span>
+                                <strong class="text-info">
+                                    $ <span>@Model.TotalAndShippingRate</span>
+                                </strong>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-3 mt-md-0 col-12 col-md-5 pr-4">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between bg-light">
+                                <span class="text-info">
+                                    Total After Adding Tax(USD)
+                                </span>
+                                <strong class="text-info">
+                                    $ <span>@Model.TotalAfterTax</span>
+                                </strong>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
